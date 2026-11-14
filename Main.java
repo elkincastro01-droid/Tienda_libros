@@ -1,25 +1,17 @@
 package co.uptc.edu.main;
 
 import javax.swing.SwingUtilities;
-
-import co.uptc.edu.vista.*;
+import co.uptc.edu.Vista.VentanaMenuPrincipal;
 
 public class Main {
 
-	public Main() {
-		// TODO Auto-generated constructor stub
+	    public Main() {}
+
+	    public static void main(String[] args) {
+	        SwingUtilities.invokeLater(() -> {
+	            VentanaMenuPrincipal ventanaPrincipal = new VentanaMenuPrincipal();
+	            ventanaPrincipal.setVisible(true);
+	        });
+	    }
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	
-	SwingUtilities.invokeLater(() -> {
-
-		            VentanaLibro ventana =
-		                    new VentanaLibro();
-
-		            ventana.setVisible(true);
-		        });
-		    }
-		
-}

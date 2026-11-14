@@ -1,115 +1,103 @@
 package co.uptc.edu.modelo;
 
 public class Libro {
-	
-	private String isbn;
-    private String titulo;
-    private String autor;
-    private int anioPublicacion;
-    private String categoria;
-    private String editorial;
-    private int paginas;
-    private double precio;
-    private int stock;
-    private String formato;
-    
-    	public Libro(String isbn, String titulo, String autor, int anioPublicacion, String categoria, String editorial,
-			int paginas, double precio, int stock, String formato) {
-		super();
-		this.isbn = isbn;
-		this.titulo = titulo;
-		this.autor = autor;
-		this.anioPublicacion = anioPublicacion;
-		this.categoria = categoria;
-		this.editorial = editorial;
-		this.paginas = paginas;
-		this.precio = precio;
-		this.stock = stock;
-		this.formato = formato;
-	}
 
-	public String getIsbn() {
-			return isbn;
-		}
+	    private int id;
+	    private String isbn;
+	    private String titulo;
+	    private String autor;
+	    private int anioPublicacion;
+	    private String categoria;
+	    private String editorial;
+	    private int paginas;
+	    private double precio;
+	    private double porcentajeIva; // 19.0 o 5.0
+	    private int stock;
+	    private String formato; // FÍSICO o DIGITAL
+	    private String imagen;
 
-		public void setIsbn(String isbn) {
-			this.isbn = isbn;
-		}
+	    public Libro() {}
 
-		public String getTitulo() {
-			return titulo;
-		}
+	    public Libro(int id, String isbn, String titulo, String autor, int anioPublicacion, 
+	                 String categoria, String editorial, int paginas, double precio, 
+	                 double porcentajeIva, int stock, String formato, String imagen) {
+	        this.id = id;
+	        this.isbn = isbn;
+	        this.titulo = titulo;
+	        this.autor = autor;
+	        this.anioPublicacion = anioPublicacion;
+	        this.categoria = categoria;
+	        this.editorial = editorial;
+	        this.paginas = paginas;
+	        this.precio = precio;
+	        this.porcentajeIva = porcentajeIva;
+	        this.stock = stock;
+	        this.formato = formato;
+	        this.imagen = imagen;
+	    }
 
-		public void setTitulo(String titulo) {
-			this.titulo = titulo;
-		}
+	    public Libro(String isbn, String titulo, String autor, int anioPublicacion, 
+	                 String categoria, String editorial, int paginas, double precio, 
+	                 double porcentajeIva, int stock, String formato, String imagen) {
+	        this.isbn = isbn;
+	        this.titulo = titulo;
+	        this.autor = autor;
+	        this.anioPublicacion = anioPublicacion;
+	        this.categoria = categoria;
+	        this.editorial = editorial;
+	        this.paginas = paginas;
+	        this.precio = precio;
+	        this.porcentajeIva = porcentajeIva;
+	        this.stock = stock;
+	        this.formato = formato;
+	        this.imagen = imagen;
+	    }
 
-		public String getAutor() {
-			return autor;
-		}
+	    // Getters y Setters
+	    public int getId() { return id; }
+	    public void setId(int id) { this.id = id; }
 
-		public void setAutor(String autor) {
-			this.autor = autor;
-		}
+	    public String getIsbn() { return isbn; }
+	    public void setIsbn(String isbn) { this.isbn = isbn; }
 
-		public int getAnioPublicacion() {
-			return anioPublicacion;
-		}
+	    public String getTitulo() { return titulo; }
+	    public void setTitulo(String titulo) { this.titulo = titulo; }
 
-		public void setAnioPublicacion(int anioPublicacion) {
-			this.anioPublicacion = anioPublicacion;
-		}
+	    public String getAutor() { return autor; }
+	    public void setAutor(String autor) { this.autor = autor; }
 
-		public String getCategoria() {
-			return categoria;
-		}
+	    public int getAnioPublicacion() { return anioPublicacion; }
+	    public void setAnioPublicacion(int anioPublicacion) { this.anioPublicacion = anioPublicacion; }
 
-		public void setCategoria(String categoria) {
-			this.categoria = categoria;
-		}
+	    public String getCategoria() { return categoria; }
+	    public void setCategoria(String categoria) { this.categoria = categoria; }
 
-		public String getEditorial() {
-			return editorial;
-		}
+	    public String getEditorial() { return editorial; }
+	    public void setEditorial(String editorial) { this.editorial = editorial; }
 
-		public void setEditorial(String editorial) {
-			this.editorial = editorial;
-		}
+	    public int getPaginas() { return paginas; }
+	    public void setPaginas(int paginas) { this.paginas = paginas; }
 
-		public int getPaginas() {
-			return paginas;
-		}
+	    public double getPrecio() { return precio; }
+	    public void setPrecio(double precio) { this.precio = precio; }
 
-		public void setPaginas(int paginas) {
-			this.paginas = paginas;
-		}
+	    public double getPorcentajeIva() { return porcentajeIva; }
+	    public void setPorcentajeIva(double porcentajeIva) { this.porcentajeIva = porcentajeIva; }
 
-		public double getPrecio() {
-			return precio;
-		}
+	    public int getStock() { return stock; }
+	    public void setStock(int stock) { this.stock = stock; }
 
-		public void setPrecio(double precio) {
-			this.precio = precio;
-		}
+	    public String getFormato() { return formato; }
+	    public void setFormato(String formato) { this.formato = formato; }
 
-		public int getStock() {
-			return stock;
-		}
+	    public String getImagen() { return imagen; }
+	    public void setImagen(String imagen) { this.imagen = imagen; }
 
-		public void setStock(int stock) {
-			this.stock = stock;
-		}
+	    public double calcularImpuesto() {
+	        return (precio * porcentajeIva) / 100.0;
+	    }
 
-		public String getFormato() {
-			return formato;
-		}
-
-		public void setFormato(String formato) {
-			this.formato = formato;
-		}
-
-	public Libro() {
-		
-	}
-
+	    public double calcularPrecioTotal() {
+	        return precio + calcularImpuesto();
+	    }
 }
